@@ -1,0 +1,2052 @@
+type: edu
+files:
+  - name: src/main/java/org/hyperskill/simplebankmanager/MainActivity.kt
+    visible: true
+    text: |-
+      package org.hyperskill.simplebankmanager
+      
+      import android.os.Bundle
+      import androidx.appcompat.app.AppCompatActivity
+      
+      class MainActivity : AppCompatActivity() {
+          override fun onCreate(savedInstanceState: Bundle?) {
+              super.onCreate(savedInstanceState)
+              setContentView(R.layout.activity_main)
+      
+              /*
+                  Tests for android can not guarantee the correctness of solutions that make use of
+                  mutation on "static" variables to keep state. You should avoid using those.
+                  Consider "static" as being anything on kotlin that is transpiled to java
+                  into a static variable. That includes global variables and variables inside
+                  singletons declared with keyword object, including companion object.
+                  This limitation is related to the use of JUnit on tests. JUnit re-instantiate all
+                  instance variable for each test method, but it does not re-instantiate static variables.
+                  The use of static variable to hold state can lead to state from one test to spill over
+                  to another test and cause unexpected results.
+                  Using mutation on static variables to keep state
+                  is considered a bad practice anyway and no measure
+                  attempting to give support to that pattern will be made.
+               */
+          }
+      }
+    learner_created: false
+  - name: src/main/res/drawable/ic_launcher_background.xml
+    visible: true
+    text: |
+      <?xml version="1.0" encoding="utf-8"?>
+      <vector xmlns:android="http://schemas.android.com/apk/res/android"
+          android:width="108dp"
+          android:height="108dp"
+          android:viewportWidth="108"
+          android:viewportHeight="108">
+          <path
+              android:fillColor="#008577"
+              android:pathData="M0,0h108v108h-108z" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M9,0L9,108"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M19,0L19,108"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M29,0L29,108"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M39,0L39,108"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M49,0L49,108"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M59,0L59,108"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M69,0L69,108"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M79,0L79,108"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M89,0L89,108"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M99,0L99,108"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M0,9L108,9"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M0,19L108,19"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M0,29L108,29"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M0,39L108,39"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M0,49L108,49"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M0,59L108,59"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M0,69L108,69"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M0,79L108,79"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M0,89L108,89"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M0,99L108,99"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M19,29L89,29"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M19,39L89,39"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M19,49L89,49"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M19,59L89,59"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M19,69L89,69"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M19,79L89,79"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M29,19L29,89"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M39,19L39,89"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M49,19L49,89"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M59,19L59,89"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M69,19L69,89"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+          <path
+              android:fillColor="#00000000"
+              android:pathData="M79,19L79,89"
+              android:strokeWidth="0.8"
+              android:strokeColor="#33FFFFFF" />
+      </vector>
+    learner_created: false
+  - name: src/main/res/drawable-v24/ic_launcher_foreground.xml
+    visible: true
+    text: |
+      <vector xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:aapt="http://schemas.android.com/aapt"
+          android:width="108dp"
+          android:height="108dp"
+          android:viewportWidth="108"
+          android:viewportHeight="108">
+          <path
+              android:fillType="evenOdd"
+              android:pathData="M32,64C32,64 38.39,52.99 44.13,50.95C51.37,48.37 70.14,49.57 70.14,49.57L108.26,87.69L108,109.01L75.97,107.97L32,64Z"
+              android:strokeWidth="1"
+              android:strokeColor="#00000000">
+              <aapt:attr name="android:fillColor">
+                  <gradient
+                      android:endX="78.5885"
+                      android:endY="90.9159"
+                      android:startX="48.7653"
+                      android:startY="61.0927"
+                      android:type="linear">
+                      <item
+                          android:color="#44000000"
+                          android:offset="0.0" />
+                      <item
+                          android:color="#00000000"
+                          android:offset="1.0" />
+                  </gradient>
+              </aapt:attr>
+          </path>
+          <path
+              android:fillColor="#FFFFFF"
+              android:fillType="nonZero"
+              android:pathData="M66.94,46.02L66.94,46.02C72.44,50.07 76,56.61 76,64L32,64C32,56.61 35.56,50.11 40.98,46.06L36.18,41.19C35.45,40.45 35.45,39.3 36.18,38.56C36.91,37.81 38.05,37.81 38.78,38.56L44.25,44.05C47.18,42.57 50.48,41.71 54,41.71C57.48,41.71 60.78,42.57 63.68,44.05L69.11,38.56C69.84,37.81 70.98,37.81 71.71,38.56C72.44,39.3 72.44,40.45 71.71,41.19L66.94,46.02ZM62.94,56.92C64.08,56.92 65,56.01 65,54.88C65,53.76 64.08,52.85 62.94,52.85C61.8,52.85 60.88,53.76 60.88,54.88C60.88,56.01 61.8,56.92 62.94,56.92ZM45.06,56.92C46.2,56.92 47.13,56.01 47.13,54.88C47.13,53.76 46.2,52.85 45.06,52.85C43.92,52.85 43,53.76 43,54.88C43,56.01 43.92,56.92 45.06,56.92Z"
+              android:strokeWidth="1"
+              android:strokeColor="#00000000" />
+      </vector>
+    learner_created: false
+  - name: src/main/res/layout/activity_main.xml
+    visible: true
+    text: |-
+      <?xml version="1.0" encoding="utf-8"?>
+      <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:app="http://schemas.android.com/apk/res-auto"
+          xmlns:tools="http://schemas.android.com/tools"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          tools:context="org.hyperskill.simplebankmanager.MainActivity">
+      
+          <TextView
+              android:id="@+id/hello"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Hello, World!"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent" />
+      
+      </androidx.constraintlayout.widget.ConstraintLayout>
+    learner_created: false
+  - name: src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+    visible: true
+    text: |-
+      <?xml version="1.0" encoding="utf-8"?>
+      <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+          <background android:drawable="@drawable/ic_launcher_background" />
+          <foreground android:drawable="@drawable/ic_launcher_foreground" />
+      </adaptive-icon>
+    learner_created: false
+  - name: src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+    visible: true
+    text: |-
+      <?xml version="1.0" encoding="utf-8"?>
+      <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+          <background android:drawable="@drawable/ic_launcher_background" />
+          <foreground android:drawable="@drawable/ic_launcher_foreground" />
+      </adaptive-icon>
+    learner_created: false
+  - name: src/main/res/values/colors.xml
+    visible: true
+    text: |-
+      <?xml version="1.0" encoding="utf-8"?>
+      <resources>
+          <color name="purple_200">#FFBB86FC</color>
+          <color name="purple_500">#FF6200EE</color>
+          <color name="purple_700">#FF3700B3</color>
+          <color name="teal_200">#FF03DAC5</color>
+          <color name="teal_700">#FF018786</color>
+          <color name="black">#FF000000</color>
+          <color name="white">#FFFFFFFF</color>
+      </resources>
+    learner_created: false
+  - name: src/main/res/values/strings.xml
+    visible: true
+    text: |
+      <resources>
+          <string name="app_name">Simple Bank Manager</string>
+      </resources>
+    learner_created: false
+  - name: src/main/res/values/themes.xml
+    visible: true
+    text: |-
+      <resources xmlns:tools="http://schemas.android.com/tools">
+          <!-- Base application theme. -->
+          <style name="Theme.MyApplication" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+              <!-- Primary brand color. -->
+              <item name="colorPrimary">@color/purple_500</item>
+              <item name="colorPrimaryVariant">@color/purple_700</item>
+              <item name="colorOnPrimary">@color/white</item>
+              <!-- Secondary brand color. -->
+              <item name="colorSecondary">@color/teal_200</item>
+              <item name="colorSecondaryVariant">@color/teal_700</item>
+              <item name="colorOnSecondary">@color/black</item>
+              <!-- Status bar color. -->
+              <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+              <!-- Customize your theme here. -->
+          </style>
+      </resources>
+    learner_created: false
+  - name: src/main/res/values-night/themes.xml
+    visible: true
+    text: |-
+      <resources xmlns:tools="http://schemas.android.com/tools">
+          <!-- Base application theme. -->
+          <style name="Theme.MyApplication" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+              <!-- Primary brand color. -->
+              <item name="colorPrimary">@color/purple_200</item>
+              <item name="colorPrimaryVariant">@color/purple_700</item>
+              <item name="colorOnPrimary">@color/black</item>
+              <!-- Secondary brand color. -->
+              <item name="colorSecondary">@color/teal_200</item>
+              <item name="colorSecondaryVariant">@color/teal_200</item>
+              <item name="colorOnSecondary">@color/black</item>
+              <!-- Status bar color. -->
+              <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+              <!-- Customize your theme here. -->
+          </style>
+      </resources>
+    learner_created: false
+  - name: src/main/AndroidManifest.xml
+    visible: true
+    text: |
+      <?xml version="1.0" encoding="utf-8"?>
+      <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="org.hyperskill.simplebankmanager">
+          <application
+              android:allowBackup="true"
+              android:label="@string/app_name"
+              android:supportsRtl="true"
+              android:theme="@style/Theme.MyApplication"
+              tools:targetApi="33">
+              <activity
+                  android:name="org.hyperskill.simplebankmanager.MainActivity"
+                  android:exported="true"
+                  tools:ignore="Instantiatable">
+                  <intent-filter>
+                      <action android:name="android.intent.action.MAIN" />
+      
+                      <category android:name="android.intent.category.LAUNCHER" />
+                  </intent-filter>
+              </activity>
+          </application>
+      
+      </manifest>
+    learner_created: false
+  - name: build.gradle
+    visible: true
+    text: |-
+      apply plugin: 'com.android.application'
+      apply plugin: 'kotlin-android'
+      
+      android {
+          compileSdk 31
+      
+          defaultConfig {
+              applicationId "org.hyperskill.simplebankmanager"
+              minSdkVersion hs.android.minSdkVersion
+              targetSdkVersion hs.android.targetSdkVersion
+              versionCode 1
+              versionName '1.0'
+          }
+      
+          buildFeatures {
+              viewBinding true
+          }
+      }
+      
+      dependencies {
+      
+          def kotlinVersion = hs.android.kotlinVersion
+          implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+      
+          def coreKtx = hs.android.lib.coreKtx
+          implementation "androidx.core:core-ktx:$coreKtx"
+      
+          def appCompat = hs.android.lib.appCompat
+          implementation "androidx.appcompat:appcompat:$appCompat"
+      
+          def constraintLayout = hs.android.lib.constraintLayout
+          implementation "androidx.constraintlayout:constraintlayout:$constraintLayout"
+      
+          def material = hs.android.lib.material
+          implementation "com.google.android.material:material:$material"
+      
+          def navigationVersion = '2.4.2'
+          implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+          implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+      }
+    learner_created: false
+  - name: src/test/java/org/hyperskill/simplebankmanager/internals/screen/CalculateExchangeScreen.kt
+    visible: false
+    text: |-
+      package org.hyperskill.simplebankmanager.internals.screen
+      
+      import android.app.Activity
+      import android.text.InputType
+      import android.widget.Button
+      import android.widget.EditText
+      import android.widget.Spinner
+      import android.widget.TextView
+      import org.hyperskill.simplebankmanager.internals.SimpleBankManagerUnitTest
+      import org.junit.Assert.assertEquals
+      import org.junit.Assert.assertTrue
+      import org.robolectric.shadows.ShadowToast
+      
+      // version 1.4
+      class CalculateExchangeScreen<T : Activity>(private val test: SimpleBankManagerUnitTest<T>) {
+      
+          companion object {
+              const val EUR = "EUR"
+              const val GBP = "GBP"
+              const val USD = "USD"
+              val expectedDropdownText = arrayListOf(EUR, GBP, USD)
+          }
+      
+          val defaultMap: Map<String, Map<String, Double>> = mapOf(
+              EUR to mapOf(
+                  GBP to 0.5,
+                  USD to 2.0
+              ),
+              GBP to mapOf(
+                  EUR to 2.0,
+                  USD to 4.0
+              ),
+              USD to mapOf(
+                  EUR to 0.5,
+                  GBP to 0.25
+              )
+          )
+      
+          val calculateExchangeLabelFromTextView = with(test) {
+              val idString = "calculateExchangeLabelFromTextView"
+              val expectedText = "convert from"
+              activity.findViewByString<TextView>(idString).apply {
+                  assertText(idString, expectedText)
+              }
+          }
+      
+          val calculateExchangeLabelToTextView = with(test) {
+              val idString = "calculateExchangeLabelToTextView"
+              val expectedText = "convert to"
+              activity.findViewByString<TextView>(idString).apply {
+                  assertText(idString, expectedText)
+              }
+          }
+      
+          val calculateExchangeConvertFromSpinner = with(test) {
+              val idString = "calculateExchangeFromSpinner"
+              activity.findViewByString<Spinner>(idString).apply {
+                  assertSpinnerText(idString, expectedDropdownText)
+              }
+          }
+      
+          val calculateExchangeConvertToSpinner = with(test) {
+              val idString = "calculateExchangeToSpinner"
+              activity.findViewByString<Spinner>(idString).apply {
+                  assertSpinnerText(idString, expectedDropdownText)
+              }
+          }
+      
+          val calculateExchangeDisplayTextView = with(test) {
+              val idString = "calculateExchangeDisplayTextView"
+              activity.findViewByString<TextView>(idString)
+          }
+      
+          val calculateExchangeAmountEditText = with(test) {
+              val idString = "calculateExchangeAmountEditText"
+              val expectedType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
+              val typeString = "numberDecimal"
+              activity.findViewByString<EditText>(idString).apply {
+                  assertEditText(idString, "Enter amount", expectedType, typeString)
+              }
+          }
+      
+          val calculateExchangeButton = with(test) {
+              val idString = "calculateExchangeButton"
+              val expectedText = "calculate"
+              activity.findViewByString<Button>(idString).apply {
+                  assertText(idString, expectedText)
+              }
+          }
+      
+      
+          fun assertDisplayConvertedAmount(
+              amountToConvert: Double,
+              convertFromText: String,
+              convertToText: String,
+              expectedConvertedAmount: Double
+          ) = with(test) {
+      
+              setSpinnerCurrencySelection(convertFromText,convertToText)
+              calculateExchangeAmountEditText.setText(amountToConvert.toString())
+      
+              calculateExchangeButton.clickAndRun()
+      
+              val fromCurrencySymbol = currencySymbol(convertFromText)
+              val toCurrencySymbol = currencySymbol(convertToText)
+      
+              val expectedAmountToConvertFormat = amountToConvert.asCurrencyFormat(fromCurrencySymbol)
+              val expectedConvertedAmountFormat = expectedConvertedAmount.asCurrencyFormat(toCurrencySymbol)
+      
+              calculateExchangeDisplayTextView.apply {
+                  val expectedText =
+                      "$expectedAmountToConvertFormat = $expectedConvertedAmountFormat"
+      
+                  val actualText = this.text.toString().uppercase()
+                  val messageDisplayError = "calculateExchangeDisplayTextView has wrong text " +
+                          "on conversion from $convertFromText to $convertToText,"
+                  assertEquals(messageDisplayError, expectedText, actualText)
+              }
+          }
+      
+          fun checkForErrorMessages(
+              isEmptyAmount: Boolean = false, isSameCurrencySelected: Boolean = false) = with(test) {
+      
+              if (isEmptyAmount) {
+                  calculateExchangeButton.clickAndRun()
+                  val expectedToastMessage = "Enter amount"
+                  assertLastToastMessageEquals(
+                      "Wrong Toast message for empty EditText at CalculateExchange",
+                      expectedToastMessage
+                  )
+                  ShadowToast.reset()
+              }
+              if (isSameCurrencySelected) {
+      
+                  val countFrom = calculateExchangeConvertFromSpinner.adapter.count
+                  val countTo = calculateExchangeConvertToSpinner.adapter.count
+      
+                  assertTrue("Both spinners at CalculateExchange should have same length", countFrom == countTo)
+      
+                  for (i in 0 until countFrom) {
+                      calculateExchangeConvertFromSpinner.setSelection(i)
+                      calculateExchangeConvertToSpinner.setSelection(i)
+                      calculateExchangeAmountEditText.setText("321")
+      
+                      try {
+                          calculateExchangeButton.clickAndRun()
+                      } catch (e : Exception) {
+                          throw AssertionError(
+                              "Exception, when same currency selected at CalculateExchange " +
+                                      "test failed on activity execution with $e", e
+                          )
+                      }
+      
+                      val expectedToastMessage = "Cannot convert to same currency"
+      
+                      assertLastToastMessageEquals(
+                          "Wrong Toast message for same currency selected at CalculateExchange",
+                          expectedToastMessage
+                      )
+                      ShadowToast.reset()
+                  }
+              }
+          }
+      
+          fun setSpinnerCurrencySelection(convertFromText: String, convertToText: String) {
+      
+              val convertFrom = when (convertFromText.uppercase()) {
+                  EUR -> 0
+                  GBP -> 1
+                  USD -> 2
+                  else -> throw Exception("Wrong currency selected or not found")
+              }
+      
+              calculateExchangeConvertFromSpinner.setSelection(convertFrom)
+      
+              val convertTo = when (convertToText.uppercase()) {
+                  EUR -> 0
+                  GBP -> 1
+                  USD -> 2
+                  else -> throw Exception("Wrong currency selected or not found")
+              }
+              calculateExchangeConvertToSpinner.setSelection(convertTo)
+          }
+      
+          fun currencySymbol(countryCode: String): String {
+              return when(countryCode) {
+                  "EUR" -> "€"
+                  "GBP" -> "£"
+                  "USD" -> "$"
+                  else -> throw IllegalArgumentException(
+                      "only EUR, GBP and USD are accepted as countryCode, but was $countryCode"
+                  )
+              }
+          }
+      }
+    learner_created: false
+  - name: src/test/java/org/hyperskill/simplebankmanager/internals/screen/LoginScreen.kt
+    visible: false
+    text: |-
+      package org.hyperskill.simplebankmanager.internals.screen
+      
+      
+      import android.app.Activity
+      import android.text.InputType
+      import android.widget.Button
+      import android.widget.EditText
+      import android.widget.Toast
+      import org.hyperskill.simplebankmanager.internals.SimpleBankManagerUnitTest
+      import org.junit.Assert.assertNull
+      import org.robolectric.shadows.ShadowToast
+      
+      // version 1.4
+      class LoginScreen<T: Activity>(private val test: SimpleBankManagerUnitTest<T>) {
+      
+          val loginUsername : EditText = with(test) {
+              val id = "loginUsername"
+      
+              activity.findViewByString<EditText>(id).apply {
+                  assertEditText(
+                      idString = id,
+                      expectedHint = "username",
+                      expectedType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PERSON_NAME,
+                      typeString = "textPersonName"
+                  )
+              }
+          }
+      
+          val loginPassword : EditText = with(test) {
+              val id = "loginPassword"
+              activity.findViewByString<EditText>(id).apply {
+                  assertEditText(
+                      idString = id,
+                      expectedHint = "password",
+                      expectedType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_VARIATION_PASSWORD,
+                      typeString = "numberPassword"
+                  )
+              }
+          }
+      
+          val loginButton : Button = with(test) {
+              val idString = "loginButton"
+              val expectedText = "log in"
+              activity.findViewByString<Button>(idString).apply {
+                  assertButtonText(idString, expectedText)
+              }
+          }
+      
+      
+      
+          fun assertLogin(
+              caseDescription: String,
+              username: String = "Lara",
+              password: String = "1234",
+              isSucceeded: Boolean = true,
+          ) {
+              with(test) {
+                  loginUsername.setText(username)
+                  loginPassword.setText(password)
+      
+                  val latestToast: Toast? = ShadowToast.getLatestToast()
+                  assertNull("There should be no toast messages before loginButton is clicked",
+                      latestToast)
+      
+                  loginButton.clickAndRun()
+      
+                  if(isSucceeded) {
+                      val message = "Wrong toast message after successful login with $caseDescription"
+                      assertLastToastMessageEquals(
+                          message,
+                          "logged in"
+                      )
+                  } else {
+                      val message = "Wrong toast message after unsuccessful login with $caseDescription"
+                      assertLastToastMessageEquals(
+                          message,
+                          "invalid credentials"
+                      )
+                  }
+                  ShadowToast.reset()
+              }
+          }
+      }
+    learner_created: false
+  - name: src/test/java/org/hyperskill/simplebankmanager/internals/screen/TransferFundsScreen.kt
+    visible: false
+    text: |-
+      package org.hyperskill.simplebankmanager.internals.screen
+      
+      import android.app.Activity
+      import android.text.InputType
+      import android.widget.Button
+      import android.widget.EditText
+      import org.hyperskill.simplebankmanager.internals.SimpleBankManagerUnitTest
+      
+      // version 1.4
+      class TransferFundsScreen<T : Activity>(private val test : SimpleBankManagerUnitTest<T>) {
+      
+          val transferFundsAccountEditText = with(test) {
+              val idString = "transferFundsAccountEditText"
+              val expectedType = InputType.TYPE_CLASS_TEXT
+              val typeString = "text"
+      
+              activity.findViewByString<EditText>(idString).apply {
+                  assertEditText(idString, "Account number", expectedType, typeString)
+              }
+          }
+          val transferFundsAmountEditText = with(test) {
+              val idString = "transferFundsAmountEditText"
+              val expectedType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
+              val typeString = "numberDecimal"
+      
+              activity.findViewByString<EditText>(idString).apply {
+                  assertEditText(idString, "Enter amount", expectedType, typeString)
+              }
+          }
+          val transferFundsButton = with(test) {
+              val idString = "transferFundsButton"
+              val expectedText = "transfer"
+              activity.findViewByString<Button>(idString).apply {
+                  assertButtonText(idString, expectedText)
+              }
+          }
+      }
+    learner_created: false
+  - name: src/test/java/org/hyperskill/simplebankmanager/internals/screen/UserMenuScreen.kt
+    visible: false
+    text: |-
+      package org.hyperskill.simplebankmanager.internals.screen
+      
+      import android.app.Activity
+      import android.widget.Button
+      import android.widget.TextView
+      import org.hyperskill.simplebankmanager.internals.SimpleBankManagerUnitTest
+      import org.junit.Assert.assertEquals
+      
+      // version 1.4
+      class UserMenuScreen<T: Activity>(private val test: SimpleBankManagerUnitTest<T>) {
+      
+          val userMenuWelcomeTextView : TextView = with(test) {
+              activity.findViewByString("userMenuWelcomeTextView")
+          }
+          val userMenuViewBalanceButton : Button = with(test) {
+              val idString = "userMenuViewBalanceButton"
+              val expectedText = "view balance"
+              activity.findViewByString<Button>(idString).apply {
+                  assertButtonText(idString, expectedText)
+              }
+          }
+          val userMenuTransferFundsButton : Button = with(test) {
+              val idString = "userMenuTransferFundsButton"
+              val expectedText = "transfer funds"
+              activity.findViewByString<Button>(idString).apply {
+                  assertButtonText(idString, expectedText)
+              }
+          }
+          val userMenuExchangeCalculatorButton : Button = with(test) {
+              val idString = "userMenuExchangeCalculatorButton"
+              val expectedText = "calculate exchange"
+              activity.findViewByString<Button>(idString).apply {
+                  assertButtonText(idString, expectedText)
+              }
+          }
+          val userMenuPayBillsButton : Button = with(test) {
+              val idString = "userMenuPayBillsButton"
+              val expectedText = "pay bills"
+              activity.findViewByString<Button>(idString).apply {
+                  assertButtonText(idString, expectedText)
+              }
+          }
+      
+          fun assertWelcomeTitle(username: String = "Lara", messageWelcomeTextError: String) {
+              val expectedText = "Welcome $username"
+              val actualText = userMenuWelcomeTextView.text.toString()
+              assertEquals(messageWelcomeTextError, expectedText, actualText)
+          }
+      }
+    learner_created: false
+  - name: src/test/java/org/hyperskill/simplebankmanager/internals/screen/ViewBalanceScreen.kt
+    visible: false
+    text: |-
+      package org.hyperskill.simplebankmanager.internals.screen
+      
+      import android.app.Activity
+      import android.widget.TextView
+      import org.hyperskill.simplebankmanager.internals.SimpleBankManagerUnitTest
+      import org.junit.Assert.assertEquals
+      
+      // version 1.4
+      class ViewBalanceScreen<T : Activity>(private val test: SimpleBankManagerUnitTest<T>) {
+      
+          val viewBalanceLabelTextView: TextView = with(test) {
+              val idString = "viewBalanceLabelTextView"
+              activity.findViewByString<TextView>(idString).apply {
+                  assertText(idString, "balance:")
+              }
+          }
+      
+          val viewBalanceShowBalanceTextView: TextView = with(test) {
+              activity.findViewByString("viewBalanceAmountTextView")
+          }
+      
+      
+          fun assertBalanceAmountDisplay(expectedBalance : String, caseDescription: String = "") {
+              val actualBalance = viewBalanceShowBalanceTextView.text.toString()
+              assertEquals("Wrong balance on viewBalanceAmountTextView, ${caseDescription}",expectedBalance,actualBalance)
+          }
+      }
+    learner_created: false
+  - name: src/test/java/org/hyperskill/simplebankmanager/internals/AbstractUnitTest.kt
+    visible: false
+    text: |-
+      package org.hyperskill.simplebankmanager.internals
+      
+      import android.app.Activity
+      import android.app.AlertDialog
+      import android.content.Intent
+      import android.os.Bundle
+      import android.view.View
+      import org.junit.Assert.*
+      import org.robolectric.Robolectric
+      import org.robolectric.Shadows.shadowOf
+      import org.robolectric.android.controller.ActivityController
+      import org.robolectric.shadow.api.Shadow
+      import org.robolectric.shadows.ShadowActivity
+      import org.robolectric.shadows.ShadowAlertDialog
+      import org.robolectric.shadows.ShadowLooper
+      import org.robolectric.shadows.ShadowToast
+      import java.time.Duration
+      
+      // version 1.4
+      @Suppress("RedundantUnitReturnType")
+      abstract class AbstractUnitTest<T : Activity>(clazz: Class<T>) {
+      
+          /**
+           * Setup and control activities and their lifecycle
+           */
+          val activityController: ActivityController<T> by lazy {
+              Robolectric.buildActivity(clazz)
+          }
+      
+          /**
+           * The activity being tested.
+           *
+           * It is the @RealObject of the shadowActivity
+           */
+          val activity: Activity by lazy {
+              activityController.get()
+          }
+      
+          /**
+           * A Roboletric shadow object of the Activity class, contains helper methods to deal with
+           * testing activities like setting permissions, peeking results of launched activities for result,
+           * retrieving shown dialogs, intents and others.
+           *
+           * If you don't know what shadows are you can have a better understanding on that reading this
+           * on roboletric documentation: http://robolectric.org/extending/
+           *
+           * Understanding Shadows is fundamental for Roboletric, things are not what they appear to be on
+           * Roboletric because running a code on the jvm is not the same as running the code on a real/emulated device.
+           * Code that expects to eventually talk to the machine won't have the machine they expect to have to talk to.
+           * Shadow is how Roboletric makes things possible, they impersonate @RealObject and act when @RealObject is expected to act.
+           *
+           * Things in Roboletric are not what they appear to be.
+           * It is possible to not notice it for the most part, but it will be essential for some other parts
+           */
+          val shadowActivity: ShadowActivity by lazy {
+              Shadow.extract(activity)
+          }
+      
+          /**
+           * A Roboletric shadow object of the mainLooper. Handles enqueued runnables and also the passage of time.
+           *
+           * Usually used with .idleFor(someDurationValue) or .runToEndOfTasks()
+           */
+          val shadowLooper: ShadowLooper by lazy {
+              shadowOf(activity.mainLooper)
+          }
+      
+          /**
+           * Decorate your test code with this method to ensure better error messages displayed
+           * when tests are run with check button and exceptions are thrown by user implementation.
+           *
+           * returns a value for convenience use, like in tests that involve navigation between Activities
+           */
+          fun <ReturnValue> testActivity(
+              arguments: Intent = Intent(),
+              savedInstanceState: Bundle? = null,
+              testCodeBlock: (Activity) -> ReturnValue
+          ): ReturnValue {
+              try {
+                  activity.intent = arguments
+                  if (savedInstanceState == null) {
+                      activityController.setup()
+                  } else {
+                      activityController.setup(savedInstanceState)
+                  }
+              } catch (ex: Exception) {
+                  throw AssertionError("Exception, test failed on activity creation with $ex\n${ex.stackTraceToString()}")
+              }
+      
+              return try {
+                  testCodeBlock(activity)
+              } catch (ex: Exception) {
+                  throw AssertionError("Exception. Test failed on activity execution with $ex\n${ex.stackTraceToString()}")
+              }
+          }
+      
+      
+          /**
+           * Use this method to retrieve the latest AlertDialog.
+           *
+           * The existence of such AlertDialog will be asserted before returning.
+           *
+           * Robolectric only supports android.app.AlertDialog, test will not be
+           * able to find androidx.appcompat.app.AlertDialog.
+           *
+           * - Important!!! :
+           * When writing stage description state explicitly the correct version that should be imported
+           */
+          fun getLatestDialog(): AlertDialog {
+              val latestAlertDialog = ShadowAlertDialog.getLatestAlertDialog()
+      
+              assertNotNull(
+                  "There was no AlertDialog found. Make sure to import android.app.AlertDialog version",
+                  latestAlertDialog
+              )
+      
+              return latestAlertDialog!!
+          }
+      
+          /**
+           * Use this method to perform clicks. It will also advance the clock millis milliseconds and run
+           * enqueued Runnable scheduled to run on main looper in that timeframe.
+           * Default value for millis is 500
+           *
+           * Internally it calls performClick() and shadowLooper.idleFor(millis)
+           */
+          fun View.clickAndRun(millis: Long = 500) {
+              this.performClick()
+              shadowLooper.idleFor(Duration.ofMillis(millis))
+          }
+      
+          /**
+           * Use this method to click on BackButton. It will also advance the clock millis milliseconds and run
+           * enqueued Runnable scheduled to run on main looper in that timeframe.
+           * Default value for millis is 500
+           *
+           * Internally it calls activity.onBackPressed() and shadowLooper.idleFor(millis)
+           */
+          fun Activity.clickBackAndRun(millis: Long = 500) {
+              this.onBackPressed()
+              shadowLooper.idleFor(Duration.ofMillis(millis))
+          }
+      
+          /**
+           * Use this method to find views.
+           *
+           * The view existence will be assert before being returned
+           */
+          inline fun <reified T> Activity.findViewByString(idString: String): T {
+              val id = this.resources.getIdentifier(idString, "id", this.packageName)
+              val maybeView: View? = this.findViewById(id)
+      
+              val (expectedClass, maybeActualClass) =
+                  if(T::class.java.simpleName == maybeView?.javaClass?.simpleName) {
+                      T::class.java.canonicalName to maybeView?.javaClass?.canonicalName
+                  } else {
+                      T::class.java.simpleName to maybeView?.javaClass?.simpleName
+                  }
+              val idNotFoundMessage = "View with id \"$idString\" was not found"
+              val wrongClassMessage = "View with id \"$idString\" is not from expected class. " +
+                      "Expected $expectedClass found $maybeActualClass"
+      
+              assertNotNull(idNotFoundMessage, maybeView)
+              assertTrue(wrongClassMessage, maybeView is T)
+      
+              return maybeView as T
+          }
+      
+          /**
+           * Use this method to find views.
+           *
+           * The view existence will be assert before being returned
+           */
+          inline fun <reified T> View.findViewByString(idString: String): T {
+              val id = this.resources.getIdentifier(idString, "id", context.packageName)
+              val maybeView: View? = this.findViewById(id)
+      
+              val (expectedClass, maybeActualClass) =
+                  if(T::class.java.simpleName == maybeView?.javaClass?.simpleName) {
+                      T::class.java.canonicalName to maybeView?.javaClass?.canonicalName
+                  } else {
+                      T::class.java.simpleName to maybeView?.javaClass?.simpleName
+                  }
+              val idNotFoundMessage = "View with id \"$idString\" was not found"
+              val wrongClassMessage = "View with id \"$idString\" is not from expected class. " +
+                      "Expected $expectedClass found $maybeActualClass"
+      
+              assertNotNull(idNotFoundMessage, maybeView)
+              assertTrue(wrongClassMessage, maybeView is T)
+      
+              return maybeView as T
+          }
+      
+          /**
+           * Asserts that the last message toasted is the expectedMessage.
+           * Assertion fails if no toast is shown with null actualLastMessage value.
+           */
+          fun assertLastToastMessageEquals(errorMessage: String, expectedMessage: String) {
+              val actualLastMessage: String? = ShadowToast.getTextOfLatestToast()
+              assertEquals(errorMessage, expectedMessage, actualLastMessage)
+          }
+      }
+    learner_created: false
+  - name: src/test/java/org/hyperskill/simplebankmanager/internals/SimpleBankManagerUnitTest.kt
+    visible: false
+    text: |-
+      package org.hyperskill.simplebankmanager.internals
+      
+      import android.app.Activity
+      import android.app.AlertDialog
+      import android.widget.Button
+      import android.widget.EditText
+      import android.widget.Spinner
+      import android.widget.TextView
+      import org.hyperskill.simplebankmanager.internals.screen.UserMenuScreen
+      import org.junit.Assert.assertEquals
+      import org.robolectric.Shadows.shadowOf
+      
+      // version 1.4
+      open class SimpleBankManagerUnitTest<T : Activity>(clazz: Class<T>) : AbstractUnitTest<T>(clazz) {
+      
+          fun Button.assertButtonText(
+              idString: String,
+              expectedText: String,
+              ignoreCase: Boolean = true
+          ) {
+              assertTextEquals("Wrong text on $idString", expectedText, text, ignoreCase)
+          }
+      
+          fun EditText.assertHintEditText(
+              idString: String,
+              expectedHint: String,
+              ignoreCase: Boolean = true
+          ) {
+              assertTextEquals("Wrong hint on $idString", expectedHint, this.hint, ignoreCase)
+          }
+          fun TextView.assertText(idString: String, expectedText: String, ignoreCase: Boolean = true) {
+              assertTextEquals("Wrong text on $idString", expectedText, this.text, ignoreCase)
+          }
+      
+          fun TextView.assertTextWithCustomErrorMessage(
+              errorMessage: String, expectedText: String, ignoreCase: Boolean = true
+          ) {
+              assertTextEquals(errorMessage, expectedText, this.text, ignoreCase)
+          }
+      
+          fun EditText.assertEditText(
+              idString: String,
+              expectedHint: String,
+              expectedType: Int,
+              typeString: String,
+              ignoreCase: Boolean = true
+          ) {
+      
+              this.assertHintEditText(idString, expectedHint, ignoreCase)
+              val actualInputType = this.inputType
+              assertEquals(
+                  "Wrong inputType on $idString should be $typeString",
+                  expectedType,
+                  actualInputType
+              )
+          }
+      
+          fun EditText.assertErrorText(errorMessage: String, expectedErrorText: String) {
+              val actualErrorText = this.error?.toString()
+              assertEquals(errorMessage, expectedErrorText, actualErrorText)
+          }
+      
+          fun Spinner.assertSpinnerText(
+              idString: String,
+              expectedDropdown: ArrayList<String>,
+              ignoreCase: Boolean = true
+          ) {
+              val items = ArrayList<String>()
+              for (i in 0 until this.adapter.count) {
+                  items.add(this.adapter.getItem(i).toString())
+              }
+              val actualDropdownString =
+                  if (ignoreCase) items.toString().uppercase() else items.toString()
+              val expectedDropdownString =
+                  if(ignoreCase) expectedDropdown.toString().uppercase() else expectedDropdown.toString()
+              assertEquals("Wrong text on $idString", expectedDropdownString, actualDropdownString)
+          }
+      
+          fun AlertDialog.assertDialogTitle(expectedTitle: String, ignoreCase: Boolean = false) {
+              val shadowAlertDialog = shadowOf(this)
+              val actualTitle = shadowAlertDialog.title
+      
+              assertTextEquals(
+                  "Wrong AlertDialog title", expectedTitle, actualTitle, ignoreCase
+              )
+          }
+          fun AlertDialog.assertDialogMessage(expectedMessage: String, ignoreCase: Boolean = false) {
+              val shadowAlertDialog = shadowOf(this)
+              val actualMessage = shadowAlertDialog.message
+              assertTextEquals("Wrong AlertDialog message", expectedMessage, actualMessage, ignoreCase)
+          }
+          fun AlertDialog.assertDialogVisibility(caseDescription: String, expectedVisible: Boolean) {
+              val actualVisible = this.isShowing
+              val messageError = "Dialog should%s be visible: %s".format(
+                  if(expectedVisible) "" else " not",
+                  caseDescription
+              )
+              assertEquals(messageError, expectedVisible, actualVisible)
+          }
+      
+          fun clickBackButtonAssertNavigateToUserMenuScreen(originScreenName: String) {
+              activity.clickBackAndRun()
+              try {
+                  UserMenuScreen(this)
+              } catch (error: AssertionError) {
+                  throw AssertionError(
+                      "After clicking back button on $originScreenName screen " +
+                              "UserMenu screen should be displayed"
+                  )
+              }
+          }
+      
+          private fun String.normalizeCase(ignoreCase: Boolean): String {
+              return if (ignoreCase) this.lowercase() else this
+          }
+      
+          private fun CharSequence.normalizeCase(ignoreCase: Boolean): String {
+              return this.toString().normalizeCase(ignoreCase)
+          }
+      
+          private fun assertTextEquals(
+              errorMessage: String,
+              expectedText: CharSequence,
+              actualText: CharSequence?,
+              ignoreCase: Boolean = true
+          )  {
+              val (expectedTextNorm, actualTextNorm) = listOf(expectedText, actualText)
+                  .map { it?.normalizeCase(ignoreCase) }
+              assertEquals(errorMessage, expectedTextNorm, actualTextNorm)
+          }
+      
+          fun String.numberAsCurrencyFormat(currencySymbol: String = "$"): String {
+              return this.toDouble().asCurrencyFormat(currencySymbol)
+          }
+      
+          fun Double.asCurrencyFormat(currencySymbol: String = "$"): String {
+              return "$currencySymbol%.2f".format(this)
+          }
+      }
+    learner_created: false
+  - name: src/test/java/org/hyperskill/simplebankmanager/Stage1UnitTest.kt
+    visible: false
+    text: |-
+      package org.hyperskill.simplebankmanager
+      
+      import android.content.Intent
+      import org.hyperskill.simplebankmanager.internals.SimpleBankManagerUnitTest
+      import org.hyperskill.simplebankmanager.internals.screen.LoginScreen
+      import org.junit.FixMethodOrder
+      import org.junit.Test
+      import org.junit.runner.RunWith
+      import org.junit.runners.MethodSorters
+      import org.robolectric.RobolectricTestRunner
+      
+      // version 1.4
+      @RunWith(RobolectricTestRunner::class)
+      @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+      class Stage1UnitTest : SimpleBankManagerUnitTest<MainActivity>(MainActivity::class.java){
+      
+      
+          @Test
+          fun test00_checkLoginFragmentHasViews() {
+              testActivity {
+                  LoginScreen(this)
+              }
+          }
+      
+          @Test
+          fun test01_checkLoginWithDefaultValuesSucceed() {
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+              }
+          }
+      
+          @Test
+          fun test02_checkLoginWithDefaultValuesFailWithWrongName() {
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "wrong username for default values",
+                          username = "John",
+                          isSucceeded = false
+                      )
+                  }
+              }
+          }
+      
+          @Test
+          fun test03_checkLoginWithDefaultValuesFailWithWrongPass() {
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "wrong password for default values",
+                          password = "1111",
+                          isSucceeded = false
+                      )
+                  }
+              }
+          }
+      
+          @Test
+          fun test04_checkLoginWithCustomValuesSucceed() {
+              val username = "Stella"
+              val password = "0000"
+      
+              val args = Intent().apply {
+                  putExtra("username", username)
+                  putExtra("password", password)
+              }
+      
+              testActivity(arguments = args) {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "custom values",
+                          username = username,
+                          password = password
+                      )
+                  }
+              }
+          }
+      
+          @Test
+          fun test05_checkLoginWithCustomValuesFailWithWrongName() {
+              val username = "Stella"
+              val password = "0000"
+      
+              val args = Intent().apply {
+                  putExtra("username", username)
+                  putExtra("password", password)
+              }
+      
+              testActivity(arguments = args) {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "wrong username for custom values",
+                          username = "John",
+                          password = password,
+                          isSucceeded = false
+                      )
+                  }
+              }
+          }
+      
+          @Test
+          fun test06_checkLoginWithCustomValuesFailWithWrongPass() {
+              val username = "Stella"
+              val password = "0000"
+      
+              val args = Intent().apply {
+                  putExtra("username", username)
+                  putExtra("password", password)
+              }
+      
+              testActivity(arguments = args) {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "wrong password for custom values",
+                          username = username,
+                          password = "9876",
+                          isSucceeded = false
+                      )
+                  }
+              }
+          }
+      }
+    learner_created: false
+  - name: src/test/java/org/hyperskill/simplebankmanager/Stage2UnitTest.kt
+    visible: false
+    text: |-
+      package org.hyperskill.simplebankmanager
+      
+      import android.content.Intent
+      import org.hyperskill.simplebankmanager.internals.SimpleBankManagerUnitTest
+      import org.hyperskill.simplebankmanager.internals.screen.LoginScreen
+      import org.hyperskill.simplebankmanager.internals.screen.UserMenuScreen
+      import org.junit.FixMethodOrder
+      import org.junit.Test
+      import org.junit.runner.RunWith
+      import org.junit.runners.MethodSorters
+      import org.robolectric.RobolectricTestRunner
+      
+      // version 1.4
+      @RunWith(RobolectricTestRunner::class)
+      @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+      class Stage2UnitTest : SimpleBankManagerUnitTest<MainActivity>(MainActivity::class.java){
+      
+      
+          @Test
+          fun test00_checkLoginWithDefaultValuesSucceed() {
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+      
+                  UserMenuScreen(this).apply {
+                      assertWelcomeTitle(
+                          messageWelcomeTextError = "Wrong welcome message after login with default values"
+                      )
+                  }
+              }
+          }
+      
+          @Test
+          fun test01_checkLoginWithCustomValuesSucceed() {
+              val username = "Stella"
+              val password = "0000"
+      
+              val args = Intent().apply {
+                  putExtra("username", username)
+                  putExtra("password", password)
+              }
+      
+              testActivity(arguments = args) {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "custom values",
+                          username = username,
+                          password = password
+                      )
+                  }
+      
+                  UserMenuScreen(this).apply {
+                      assertWelcomeTitle(
+                          username = username,
+                          messageWelcomeTextError = "Wrong welcome message after login with custom values"
+                      )
+                  }
+              }
+          }
+      }
+    learner_created: false
+  - name: src/test/java/org/hyperskill/simplebankmanager/Stage3UnitTest.kt
+    visible: false
+    text: |-
+      package org.hyperskill.simplebankmanager
+      
+      import android.content.Intent
+      import org.hyperskill.simplebankmanager.internals.SimpleBankManagerUnitTest
+      import org.hyperskill.simplebankmanager.internals.screen.LoginScreen
+      import org.hyperskill.simplebankmanager.internals.screen.TransferFundsScreen
+      import org.hyperskill.simplebankmanager.internals.screen.UserMenuScreen
+      import org.hyperskill.simplebankmanager.internals.screen.ViewBalanceScreen
+      import org.junit.FixMethodOrder
+      import org.junit.Test
+      import org.junit.runner.RunWith
+      import org.junit.runners.MethodSorters
+      import org.robolectric.RobolectricTestRunner
+      import org.robolectric.shadows.ShadowToast
+      
+      // version 1.4
+      @RunWith(RobolectricTestRunner::class)
+      @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+      class Stage3UnitTest : SimpleBankManagerUnitTest<MainActivity>(MainActivity::class.java) {
+      
+      
+          @Test
+          fun test00_checkNavigationOnViewBalanceButtonClick() {
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuViewBalanceButton.clickAndRun()
+                  }
+      
+                  ViewBalanceScreen(this).apply {
+                      clickBackButtonAssertNavigateToUserMenuScreen(originScreenName = "ViewBalance")
+                  }
+              }
+          }
+      
+      
+          @Test
+          fun test01_checkViewBalanceDefaultValues() {
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuViewBalanceButton.clickAndRun()
+                  }
+                  ViewBalanceScreen(this).apply {
+                      assertBalanceAmountDisplay(
+                          expectedBalance = "\$100.00",
+                          caseDescription = "with default initial balance values"
+                      )
+                      activity.clickBackAndRun()
+                  }
+              }
+          }
+      
+          @Test
+          fun test02_checkViewBalanceCustomValues() {
+      
+              val username = "Elaine"
+              val password = "9678"
+      
+              val args = Intent().apply {
+                  putExtra("username", username)
+                  putExtra("password", password)
+                  putExtra("balance", 30.0)
+              }
+      
+              testActivity(arguments = args) {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          username = username,
+                          password = password,
+                          caseDescription = "custom values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuViewBalanceButton.clickAndRun()
+                  }
+                  ViewBalanceScreen(this).apply {
+                      assertBalanceAmountDisplay(
+                          expectedBalance = "\$30.00",
+                          caseDescription = "with custom initial balance values"
+                      )
+                  }
+              }
+          }
+      
+          @Test
+          fun test03_checkNavigationOnTransferFundsClick() {
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuTransferFundsButton.clickAndRun()
+                  }
+                  TransferFundsScreen(this).apply {
+                      clickBackButtonAssertNavigateToUserMenuScreen(originScreenName = "TransferFunds")
+                  }
+              }
+          }
+      
+          @Test
+          fun test04_checkEmptyAmountTransferError() {
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuTransferFundsButton.clickAndRun()
+                  }
+                  TransferFundsScreen(this).apply {
+                      transferFundsAccountEditText.setText("sa1234")
+                      transferFundsAmountEditText.setText("")
+                      transferFundsButton.clickAndRun()
+                      transferFundsAmountEditText.assertErrorText(
+                          errorMessage = "If transferFundsAmountEditText has empty amount it should set error property,",
+                          expectedErrorText = "Invalid amount"
+                      )
+                  }
+              }
+          }
+      
+          @Test
+          fun test05_checkZeroAmountTransferError() {
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuTransferFundsButton.clickAndRun()
+                  }
+                  TransferFundsScreen(this).apply {
+                      transferFundsAccountEditText.setText("sa1234")
+                      transferFundsAmountEditText.setText("0")
+                      transferFundsButton.clickAndRun()
+                      transferFundsAmountEditText.assertErrorText(
+                          errorMessage = "If transferFundsAmountEditText has zero amount it should set error property,",
+                          expectedErrorText = "Invalid amount"
+                      )
+                  }
+              }
+          }
+      
+          @Test
+          fun test06_checkEmptyAccountTransferError() {
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuTransferFundsButton.clickAndRun()
+                  }
+                  TransferFundsScreen(this).apply {
+                      transferFundsAmountEditText.setText("20")
+                      transferFundsAccountEditText.setText("")
+                      transferFundsButton.clickAndRun()
+                      transferFundsAccountEditText.assertErrorText(
+                          errorMessage = "If transferFundsAccountEditText is empty it should set error property,",
+                          expectedErrorText = "Invalid account number"
+                      )
+                  }
+              }
+          }
+      
+          @Test
+          fun test07_checkIncorrectAccountTransferError() {
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuTransferFundsButton.clickAndRun()
+                  }
+                  TransferFundsScreen(this).apply {
+                      val incorrectAccounts = listOf(
+                          "ab1234",
+                          "sa999",
+                          "sa12345",
+                          "ca565",
+                          "ca98765",
+                          "121234",
+                          "saa555",
+                          "caa444"
+                      )
+                      incorrectAccounts.forEach {
+                          transferFundsAmountEditText.setText("20")
+                          transferFundsAccountEditText.setText(it)
+                          transferFundsButton.clickAndRun()
+                          transferFundsAccountEditText.assertErrorText(
+                              errorMessage = "If transferFundsAccountEditText is empty it should set error property,",
+                              expectedErrorText = "Invalid account number"
+                          )
+                      }
+                  }
+              }
+          }
+      
+          @Test
+          fun test08_checkInsufficientFundsToastWithDefaultBalance() {
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuTransferFundsButton.clickAndRun()
+                  }
+                  TransferFundsScreen(this).apply {
+                      val largeAmountsWithoutDecimals = listOf("101", "200", "999")
+                      largeAmountsWithoutDecimals.forEach { largeAmount ->
+                          transferFundsAmountEditText.setText(largeAmount)
+                          transferFundsAccountEditText.setText("ca1234")
+                          transferFundsButton.clickAndRun()
+                          val formatAmount = largeAmount.numberAsCurrencyFormat()
+                          assertLastToastMessageEquals(
+                              errorMessage = "When the account does not have sufficient funds a toast message is expected",
+                              expectedMessage = "Not enough funds to transfer $formatAmount"
+                          )
+                      }
+                      val largeAmountsWithDecimals = listOf("100.10", "200.05", "300.54", "900.00")
+                      largeAmountsWithDecimals.forEach { largeAmount ->
+                          transferFundsAmountEditText.setText(largeAmount)
+                          transferFundsAccountEditText.setText("sa9276")
+                          transferFundsButton.clickAndRun()
+                          val formatAmount = largeAmount.numberAsCurrencyFormat()
+                          assertLastToastMessageEquals(
+                              errorMessage = "When the account does not have sufficient funds a toast message is expected",
+                              expectedMessage = "Not enough funds to transfer $formatAmount"
+                          )
+                      }
+                      clickBackButtonAssertNavigateToUserMenuScreen(originScreenName = "TransferFunds")
+                  }
+      
+                  UserMenuScreen(this).apply {
+                      userMenuViewBalanceButton.clickAndRun()
+                  }
+      
+                  ViewBalanceScreen(this).apply {
+                      viewBalanceShowBalanceTextView.assertTextWithCustomErrorMessage(
+                          errorMessage = "After unsuccessful transfer balance should not change on viewBalanceShowBalanceTextView",
+                          expectedText = "\$100.00"
+                      )
+                  }
+              }
+          }
+      
+          @Test
+          fun test09_checkInsufficientFundsToastWithCustomBalance() {
+      
+              val username = "Elaine"
+              val password = "9678"
+      
+              val args = Intent().apply {
+                  putExtra("username", username)
+                  putExtra("password", password)
+                  putExtra("balance", 200.12)
+              }
+      
+              testActivity(arguments = args) {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          username = username,
+                          password = password,
+                          caseDescription = "custom values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuTransferFundsButton.clickAndRun()
+                  }
+                  TransferFundsScreen(this).apply {
+                      val largeAmountsWithoutDecimals = listOf("201", "500", "860")
+                      largeAmountsWithoutDecimals.forEach { largeAmount ->
+                          transferFundsAmountEditText.setText(largeAmount)
+                          transferFundsAccountEditText.setText("ca1234")
+                          transferFundsButton.clickAndRun()
+                          val formatAmount = largeAmount.numberAsCurrencyFormat()
+                          assertLastToastMessageEquals(
+                              errorMessage = "When the account does not have sufficient funds a toast message is expected",
+                              expectedMessage = "Not enough funds to transfer $formatAmount"
+                          )
+                      }
+                      val largeAmountsWithDecimals = listOf("200.15", "900.05", "300.54", "300.00")
+                      largeAmountsWithDecimals.forEach { largeAmount ->
+                          transferFundsAmountEditText.setText(largeAmount)
+                          transferFundsAccountEditText.setText("sa9276")
+                          transferFundsButton.clickAndRun()
+                          val formatAmount = largeAmount.numberAsCurrencyFormat()
+                          assertLastToastMessageEquals(
+                              errorMessage = "When the account does not have sufficient funds a toast message is expected",
+                              expectedMessage = "Not enough funds to transfer $formatAmount"
+                          )
+                      }
+                      clickBackButtonAssertNavigateToUserMenuScreen(originScreenName = "TransferFunds")
+                  }
+      
+                  UserMenuScreen(this).apply {
+                      userMenuViewBalanceButton.clickAndRun()
+                  }
+      
+                  ViewBalanceScreen(this).apply {
+                      viewBalanceShowBalanceTextView.assertTextWithCustomErrorMessage(
+                          errorMessage = "After unsuccessful transfer balance should not change on viewBalanceShowBalanceTextView",
+                          expectedText = "\$200.12"
+                      )
+                  }
+              }
+          }
+      
+          @Test
+          fun test10_checkSuccessfulTransferToastMessageAndReturnToUserMenu() {
+      
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuTransferFundsButton.clickAndRun()
+                  }
+                  TransferFundsScreen(this).apply {
+                      transferFundsAmountEditText.setText("50.10")
+                      transferFundsAccountEditText.setText("ca3435")
+                      transferFundsButton.clickAndRun()
+                      assertLastToastMessageEquals(
+                          errorMessage = "When transfer is successful a toast message is expected",
+                          expectedMessage = "Transferred \$50.10 to account ca3435"
+                      )
+                  }
+      
+                  try {
+                      UserMenuScreen(this)
+                  } catch (error: AssertionError) {
+                      throw AssertionError("When transfer is successful user should be automatically redirected to UserMenu screen")
+                  }.apply {
+                      userMenuViewBalanceButton.clickAndRun()
+                  }
+      
+                  ViewBalanceScreen(this).apply {
+                      viewBalanceShowBalanceTextView.assertTextWithCustomErrorMessage(
+                          errorMessage = "After successful transfer balance should change on viewBalanceShowBalanceTextView",
+                          expectedText = "\$49.90"
+                      )
+                  }
+              }
+          }
+      
+          @Test
+          fun test11_checkUnsuccessfulTransferAfterSuccessfulTransfer() {
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuTransferFundsButton.clickAndRun()
+                  }
+                  TransferFundsScreen(this).apply {
+                      transferFundsAmountEditText.setText("50.10")
+                      transferFundsAccountEditText.setText("ca3435")
+                      transferFundsButton.clickAndRun()
+                      assertLastToastMessageEquals(
+                          errorMessage = "When transfer is successful a toast message is expected",
+                          expectedMessage = "Transferred \$50.10 to account ca3435"
+                      )
+                  }
+      
+                  try {
+                      UserMenuScreen(this)
+                  } catch (error: AssertionError) {
+                      throw AssertionError("When transfer is successful user should be automatically redirected to UserMenu screen")
+                  }.apply {
+                      userMenuTransferFundsButton.clickAndRun()
+                  }
+      
+                  TransferFundsScreen(this).apply {
+                      ShadowToast.reset()
+                      transferFundsAmountEditText.setText("50.10")
+                      transferFundsAccountEditText.setText("ca3435")
+                      transferFundsButton.clickAndRun()
+                      assertLastToastMessageEquals(
+                          errorMessage = "When transfer is successful a toast message is expected",
+                          expectedMessage = "Not enough funds to transfer \$50.10"
+                      )
+                  }
+              }
+          }
+      }
+    learner_created: false
+  - name: src/test/java/org/hyperskill/simplebankmanager/Stage4UnitTest.kt
+    visible: false
+    text: |-
+      package org.hyperskill.simplebankmanager
+      
+      import android.content.Intent
+      import org.hyperskill.simplebankmanager.internals.SimpleBankManagerUnitTest
+      import org.hyperskill.simplebankmanager.internals.screen.CalculateExchangeScreen
+      import org.hyperskill.simplebankmanager.internals.screen.CalculateExchangeScreen.Companion.EUR
+      import org.hyperskill.simplebankmanager.internals.screen.CalculateExchangeScreen.Companion.GBP
+      import org.hyperskill.simplebankmanager.internals.screen.CalculateExchangeScreen.Companion.USD
+      import org.hyperskill.simplebankmanager.internals.screen.LoginScreen
+      import org.hyperskill.simplebankmanager.internals.screen.UserMenuScreen
+      import org.junit.Assert.assertNotEquals
+      import org.junit.Assert.assertTrue
+      import org.junit.FixMethodOrder
+      import org.junit.Test
+      import org.junit.runner.RunWith
+      import org.junit.runners.MethodSorters
+      import org.robolectric.RobolectricTestRunner
+      
+      // version 1.4.1
+      @RunWith(RobolectricTestRunner::class)
+      @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+      class Stage4UnitTest : SimpleBankManagerUnitTest<MainActivity>(MainActivity::class.java) {
+      
+      
+          @Test
+          fun test00_checkNavigationOnCalculateExchange() {
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuExchangeCalculatorButton.clickAndRun()
+                  }
+      
+                  CalculateExchangeScreen(this).apply {
+                      clickBackButtonAssertNavigateToUserMenuScreen(
+                          originScreenName = "CalculateExchange"
+                      )
+                  }
+              }
+          }
+      
+      
+          @Test
+          fun test01_convertEURtoGBP() {
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuExchangeCalculatorButton.clickAndRun()
+                  }
+                  CalculateExchangeScreen(this).apply {
+                      val amountToConvert = 350.0
+                      val expectedConvertedAmount = amountToConvert * defaultMap[EUR]!![GBP]!!
+                      assertDisplayConvertedAmount(
+                          amountToConvert,
+                          EUR,
+                          GBP,
+                          expectedConvertedAmount
+                      ) // conversion is set to 2 decimal points
+                  }
+              }
+          }
+      
+          @Test
+          fun test02_convertUSDtoEUR() {
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuExchangeCalculatorButton.clickAndRun()
+                  }
+                  CalculateExchangeScreen(this).apply {
+                      val amountToConvert = 100.0
+                      val expectedConvertedAmount = amountToConvert * defaultMap[USD]!![EUR]!!
+                      assertDisplayConvertedAmount(
+                          amountToConvert,
+                          USD,
+                          EUR,
+                          expectedConvertedAmount
+                      ) // conversion is set to 2 decimal points
+                  }
+              }
+          }
+      
+          @Test
+          fun test03_convertGBPtoEUR() {
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuExchangeCalculatorButton.clickAndRun()
+                  }
+                  CalculateExchangeScreen(this).apply {
+                      val amountToConvert = 345.0
+                      val expectedConvertedAmount = amountToConvert * defaultMap[GBP]!![EUR]!!
+                      assertDisplayConvertedAmount(
+                          amountToConvert,
+                          GBP,
+                          EUR,
+                          expectedConvertedAmount
+                      ) // conversion is set to 2 decimal points
+                  }
+              }
+          }
+      
+          @Test
+          fun test04_CheckForErrorSameCurrenciesSelected() {
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuExchangeCalculatorButton.clickAndRun()
+                  }
+                  CalculateExchangeScreen(this).apply {
+                      checkForErrorMessages(isEmptyAmount = true)
+                  }
+              }
+          }
+      
+          @Test
+          fun test05_CheckForErrorEmptyAmount() {
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuExchangeCalculatorButton.clickAndRun()
+                  }
+                  CalculateExchangeScreen(this).apply {
+                      checkForErrorMessages(isSameCurrencySelected = true)
+                  }
+              }
+          }
+      
+          @Test
+          fun test06_CheckIfSameCurrencyCanBeSelected() {
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuExchangeCalculatorButton.clickAndRun()
+                  }
+                  CalculateExchangeScreen(this).apply {
+                      setSpinnerCurrencySelection(USD, USD)
+                      val convertFrom = calculateExchangeConvertFromSpinner.selectedItem
+                      val convertTo = calculateExchangeConvertToSpinner.selectedItem
+                      assertTrue("Currencies for \"convert from\"=$convertFrom and \"convert to\"=$convertTo"
+                              + " should not be selected as equal",
+                          convertFrom != convertTo
+                      )
+                  }
+              }
+          }
+      
+          @Test
+          fun test07_convertAllDefaultMap() {
+      
+      
+              testActivity {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuExchangeCalculatorButton.clickAndRun()
+                  }
+      
+                  CalculateExchangeScreen(this).apply {
+                      for (from in defaultMap.keys) {
+                          val fromMap = defaultMap[from]!!
+                          for (to in fromMap.keys) {
+                              val rate = fromMap[to]!!
+                              val amountToConvert = 100.0
+                              val expectedConvertedAmount = amountToConvert * rate
+      
+                              assertDisplayConvertedAmount(
+                                  amountToConvert,
+                                  from,
+                                  to,
+                                  expectedConvertedAmount
+                              ) // conversion is set to 2 decimal points
+                          }
+                      }
+                  }
+              }
+          }
+      
+          @Test
+          fun test08_convertAllCustomMap() {
+      
+              val exchangeMap: Map<String, Map<String, Double>> = mapOf(
+                  EUR to mapOf(
+                      GBP to 0.886,
+                      USD to 1.074
+                  ),
+                  GBP to mapOf(
+                      EUR to 1.128,
+                      USD to 1.212
+                  ),
+                  USD to mapOf(
+                      EUR to 0.913,
+                      GBP to 0.825
+                  )
+              )
+      
+              val args = Intent().apply {
+                  putExtra("exchangeMap", exchangeMap as java.io.Serializable)
+              }
+      
+              testActivity(arguments = args) {
+                  LoginScreen(this).apply {
+                      assertLogin(
+                          caseDescription = "default values"
+                      )
+                  }
+                  UserMenuScreen(this).apply {
+                      userMenuExchangeCalculatorButton.clickAndRun()
+                  }
+      
+                  CalculateExchangeScreen(this).apply {
+                      for (from in exchangeMap.keys) {
+                          val fromMap = exchangeMap[from]!!
+                          for (to in fromMap.keys) {
+                              val rate = fromMap[to]!!
+                              val amountToConvert = 100.0
+                              val expectedConvertedAmount = amountToConvert * rate
+      
+                              assertDisplayConvertedAmount(
+                                  amountToConvert,
+                                  from,
+                                  to,
+                                  expectedConvertedAmount
+                              ) // conversion is set to 2 decimal points
+                          }
+                      }
+                  }
+              }
+          }
+      }
+    learner_created: false
+feedback_link: https://hyperskill.org/projects/333/stages/1871/implement#comment
+status: Unchecked
+record: -1
