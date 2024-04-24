@@ -1268,9 +1268,9 @@ files:
   - name: src/main/java/org/hyperskill/simplebankmanager/UserMenuFragment.kt
     visible: true
     learner_created: true
-feedback_link: https://hyperskill.org/projects/333/stages/1869/implement#comment
+feedback_link: https://hyperskill.org/learn/step/27106#comment
 status: Solved
 feedback:
   message: Congratulations!
   time: "Tue, 23 Apr 2024 12:36:11 UTC"
-record: -1
+record: 2
