@@ -50,6 +50,11 @@ class UserMenuFragment : Fragment() {
         transferFundsButton.setOnClickListener {
             findNavController().navigate(R.id.action_userMenuFragment_to_transferFundsFragment)
         }
+
+        val exchangeCalculatorButton = view.findViewById<Button>(R.id.userMenuExchangeCalculatorButton)
+        exchangeCalculatorButton.setOnClickListener {
+            findNavController().navigate(R.id.action_userMenuFragment_to_calculateExchangeFragment)
+        }
     }
 
     companion object {

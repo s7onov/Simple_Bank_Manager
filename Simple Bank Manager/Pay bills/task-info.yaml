@@ -2502,6 +2502,867 @@ files:
           }
       }
     learner_created: false
+  - name: src/main/java/org/hyperskill/simplebankmanager/UserMenuFragment.kt
+    visible: true
+    text: |-
+      package org.hyperskill.simplebankmanager
+      
+      import android.os.Bundle
+      import androidx.fragment.app.Fragment
+      import android.view.LayoutInflater
+      import android.view.View
+      import android.view.ViewGroup
+      import android.widget.Button
+      import android.widget.TextView
+      import androidx.navigation.fragment.findNavController
+      
+      // TODO: Rename parameter arguments, choose names that match
+      // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+      private const val ARG_PARAM1 = "username"
+      
+      /**
+       * A simple [Fragment] subclass.
+       * Use the [UserMenuFragment.newInstance] factory method to
+       * create an instance of this fragment.
+       */
+      class UserMenuFragment : Fragment() {
+          // TODO: Rename and change types of parameters
+          private var username: String? = null
+      
+          override fun onCreate(savedInstanceState: Bundle?) {
+              super.onCreate(savedInstanceState)
+              arguments?.let {
+                  username = it.getString(ARG_PARAM1)
+              }
+          }
+      
+          override fun onCreateView(
+              inflater: LayoutInflater, container: ViewGroup?,
+              savedInstanceState: Bundle?
+          ): View? {
+              // Inflate the layout for this fragment
+              return inflater.inflate(R.layout.fragment_user_menu, container, false)
+          }
+      
+          override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+              super.onViewCreated(view, savedInstanceState)
+              view.findViewById<TextView>(R.id.userMenuWelcomeTextView).text = "Welcome $username"
+      
+              val viewBalanceButton = view.findViewById<Button>(R.id.userMenuViewBalanceButton)
+              viewBalanceButton.setOnClickListener {
+                  findNavController().navigate(R.id.action_userMenuFragment_to_viewBalanceFragment)
+              }
+      
+              val transferFundsButton = view.findViewById<Button>(R.id.userMenuTransferFundsButton)
+              transferFundsButton.setOnClickListener {
+                  findNavController().navigate(R.id.action_userMenuFragment_to_transferFundsFragment)
+              }
+      
+              val exchangeCalculatorButton = view.findViewById<Button>(R.id.userMenuExchangeCalculatorButton)
+              exchangeCalculatorButton.setOnClickListener {
+                  findNavController().navigate(R.id.action_userMenuFragment_to_calculateExchangeFragment)
+              }
+          }
+      
+          companion object {
+              /**
+               * Use this factory method to create a new instance of
+               * this fragment using the provided parameters.
+               *
+               * @param param1 Parameter 1.
+               * @param param2 Parameter 2.
+               * @return A new instance of fragment UserMenuFragment.
+               */
+              // TODO: Rename and change types and number of parameters
+              @JvmStatic
+              fun newInstance(param1: String, param2: String) =
+                  UserMenuFragment().apply {
+                      arguments = Bundle().apply {
+                          putString(ARG_PARAM1, param1)
+                      }
+                  }
+          }
+      }
+    learner_created: true
+  - name: src/main/res/layout/fragment_calculate_exchange.xml
+    visible: true
+    text: |-
+      <?xml version="1.0" encoding="utf-8"?>
+      <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:app="http://schemas.android.com/apk/res-auto"
+          xmlns:tools="http://schemas.android.com/tools"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          tools:context=".CalculateExchangeFragment">
+      
+          <TextView
+              android:id="@+id/calculateExchangeLabelFromTextView"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="72dp"
+              android:layout_marginTop="240dp"
+              android:text="convert from"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent" />
+      
+          <TextView
+              android:id="@+id/calculateExchangeLabelToTextView"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="88dp"
+              android:layout_marginTop="64dp"
+              android:text="convert to"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/calculateExchangeLabelFromTextView" />
+      
+          <Spinner
+              android:id="@+id/calculateExchangeFromSpinner"
+              android:layout_width="125dp"
+              android:layout_height="50dp"
+              android:layout_marginStart="32dp"
+              android:layout_marginTop="220dp"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintHorizontal_bias="0.009"
+              app:layout_constraintStart_toEndOf="@+id/calculateExchangeLabelFromTextView"
+              app:layout_constraintTop_toTopOf="parent" />
+      
+          <Spinner
+              android:id="@+id/calculateExchangeToSpinner"
+              android:layout_width="125dp"
+              android:layout_height="50dp"
+              android:layout_marginStart="32dp"
+              android:layout_marginTop="36dp"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintHorizontal_bias="0.048"
+              app:layout_constraintStart_toEndOf="@+id/calculateExchangeLabelToTextView"
+              app:layout_constraintTop_toBottomOf="@+id/calculateExchangeFromSpinner" />
+      
+          <TextView
+              android:id="@+id/calculateExchangeDisplayTextView"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="76dp"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/calculateExchangeToSpinner" />
+      
+          <EditText
+              android:id="@+id/calculateExchangeAmountEditText"
+              android:layout_width="216dp"
+              android:layout_height="58dp"
+              android:layout_marginTop="24dp"
+              android:ems="10"
+              android:hint="Enter amount"
+              android:inputType="numberDecimal"
+              android:textAlignment="center"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintHorizontal_bias="0.497"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/calculateExchangeDisplayTextView" />
+      
+          <Button
+              android:id="@+id/calculateExchangeButton"
+              android:layout_width="140dp"
+              android:layout_height="50dp"
+              android:layout_marginTop="12dp"
+              android:text="Calculate"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/calculateExchangeAmountEditText" />
+      </androidx.constraintlayout.widget.ConstraintLayout>
+    learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/CalculateExchangeFragment.kt
+    visible: true
+    text: |-
+      package org.hyperskill.simplebankmanager
+      
+      import android.os.Bundle
+      import androidx.fragment.app.Fragment
+      import android.view.LayoutInflater
+      import android.view.View
+      import android.view.ViewGroup
+      import android.widget.AdapterView
+      import android.widget.ArrayAdapter
+      import android.widget.Button
+      import android.widget.EditText
+      import android.widget.Spinner
+      import android.widget.TextView
+      import android.widget.Toast
+      import java.math.BigDecimal
+      import java.util.Locale
+      
+      // TODO: Rename parameter arguments, choose names that match
+      // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+      private const val ARG_PARAM1 = "param1"
+      private const val ARG_PARAM2 = "param2"
+      
+      /**
+       * A simple [Fragment] subclass.
+       * Use the [CalculateExchangeFragment.newInstance] factory method to
+       * create an instance of this fragment.
+       */
+      class CalculateExchangeFragment : Fragment() {
+          // TODO: Rename and change types of parameters
+          private var param1: String? = null
+          private var param2: String? = null
+          private lateinit var spinnerFrom: Spinner
+          private lateinit var spinnerTo: Spinner
+          private val list = listOf("EUR", "GBP", "USD")
+          private val symbolsMap = mapOf("EUR" to '€', "GBP" to '£', "USD" to '$')
+      
+          override fun onCreate(savedInstanceState: Bundle?) {
+              super.onCreate(savedInstanceState)
+              arguments?.let {
+                  param1 = it.getString(ARG_PARAM1)
+                  param2 = it.getString(ARG_PARAM2)
+              }
+          }
+      
+          override fun onCreateView(
+              inflater: LayoutInflater, container: ViewGroup?,
+              savedInstanceState: Bundle?
+          ): View? {
+              // Inflate the layout for this fragment
+              return inflater.inflate(R.layout.fragment_calculate_exchange, container, false)
+          }
+      
+          override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+              super.onViewCreated(view, savedInstanceState)
+              spinnerFrom = view.findViewById<Spinner>(R.id.calculateExchangeFromSpinner)
+              ArrayAdapter(
+                  view.context,
+                  android.R.layout.simple_spinner_item,
+                  list
+              ).also { adapter ->
+                  adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                  spinnerFrom.adapter = adapter
+              }
+      
+              spinnerTo = view.findViewById<Spinner>(R.id.calculateExchangeToSpinner)
+              ArrayAdapter(
+                  view.context,
+                  android.R.layout.simple_spinner_item,
+                  list
+              ).also { adapter ->
+                  adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                  spinnerTo.adapter = adapter
+              }
+              spinnerTo.setSelection(1)
+      
+              val itemListener = object : AdapterView.OnItemSelectedListener{
+                  override fun onNothingSelected(parent: AdapterView<*>?) {
+      
+                  }
+      
+                  override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                      if (spinnerFrom.selectedItem.toString() == spinnerTo.selectedItem.toString()) {
+                          Toast.makeText(this@CalculateExchangeFragment.context, "Cannot convert to same currency", Toast.LENGTH_SHORT).show()
+                          spinnerTo.setSelection( (spinnerTo.selectedItemPosition + 1) % 3)
+                      }
+                  }
+              }
+              spinnerFrom.onItemSelectedListener = itemListener
+              spinnerTo.onItemSelectedListener = itemListener
+      
+              val calcButton = view.findViewById<Button>(R.id.calculateExchangeButton)
+              calcButton?.setOnClickListener {
+                  val text = view.findViewById<EditText>(R.id.calculateExchangeAmountEditText).text.toString()
+                  if (text.isBlank()) Toast.makeText(this@CalculateExchangeFragment.context, "Enter amount", Toast.LENGTH_SHORT).show()
+                  else {
+                      val from = spinnerFrom.selectedItem.toString() //EUR
+                      val to = spinnerTo.selectedItem.toString() //GBP
+                      val amountFrom = BigDecimal(text)
+                      val multiplier: Double = Singleton.getInstance().exchangeMap[from]?.get(to) ?: 1.0
+                      val amountTo = amountFrom * BigDecimal(multiplier)
+                      buildString {
+                          append(symbolsMap[from])
+                          append(String.format(Locale.US, "%.2f", amountFrom))
+                          append(" = ")
+                          append(symbolsMap[to])
+                          append(String.format(Locale.US, "%.2f", amountTo))
+                      }.also { view.findViewById<TextView>(R.id.calculateExchangeDisplayTextView).text = it }
+                  }
+              }
+          }
+      
+          companion object {
+              /**
+               * Use this factory method to create a new instance of
+               * this fragment using the provided parameters.
+               *
+               * @param param1 Parameter 1.
+               * @param param2 Parameter 2.
+               * @return A new instance of fragment CalculateExchangeFragment.
+               */
+              // TODO: Rename and change types and number of parameters
+              @JvmStatic
+              fun newInstance(param1: String, param2: String) =
+                  CalculateExchangeFragment().apply {
+                      arguments = Bundle().apply {
+                          putString(ARG_PARAM1, param1)
+                          putString(ARG_PARAM2, param2)
+                      }
+                  }
+          }
+      }
+    learner_created: true
+  - name: src/main/res/values/dimens.xml
+    visible: true
+    text: |-
+      <resources>
+          <!-- Default screen margins, per the Android Design guidelines. -->
+          <dimen name="fragment_horizontal_margin">16dp</dimen>
+          <dimen name="fragment_vertical_margin">16dp</dimen>
+      </resources>
+    learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/LoginFragment.kt
+    visible: true
+    text: |-
+      package org.hyperskill.simplebankmanager
+      
+      import android.os.Bundle
+      import androidx.fragment.app.Fragment
+      import android.view.LayoutInflater
+      import android.view.View
+      import android.view.ViewGroup
+      import android.widget.Button
+      import android.widget.EditText
+      import android.widget.Toast
+      import androidx.core.os.bundleOf
+      import androidx.navigation.fragment.findNavController
+      import java.math.BigDecimal
+      
+      // TODO: Rename parameter arguments, choose names that match
+      // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+      private const val ARG_PARAM1 = "username"
+      private const val ARG_PARAM2 = "password"
+      
+      /**
+       * A simple [Fragment] subclass.
+       * Use the [LoginFragment.newInstance] factory method to
+       * create an instance of this fragment.
+       */
+      class LoginFragment : Fragment() {
+          // TODO: Rename and change types of parameters
+          private var param1: String? = null
+          private var param2: String? = null
+          private lateinit var correctUsername: String
+          private lateinit var correctPassword: String
+      
+          override fun onCreate(savedInstanceState: Bundle?) {
+              super.onCreate(savedInstanceState)
+              arguments?.let {
+                  param1 = it.getString(ARG_PARAM1)
+                  param2 = it.getString(ARG_PARAM2)
+              }
+          }
+      
+          override fun onCreateView(
+              inflater: LayoutInflater, container: ViewGroup?,
+              savedInstanceState: Bundle?
+          ): View? {
+              // Inflate the layout for this fragment
+              return inflater.inflate(R.layout.fragment_login, container, false)
+          }
+      
+          override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+              super.onViewCreated(view, savedInstanceState)
+              val intent = (view.context as MainActivity).intent
+              correctUsername = intent.extras?.getString("username") ?: "Lara"
+              correctPassword = intent.extras?.getString("password") ?: "1234"
+      
+              val button = view.findViewById<Button>(R.id.loginButton)
+              button.setOnClickListener {
+                  val enteredName = view.findViewById<EditText>(R.id.loginUsername).text.toString()
+                  val enteredPass = view.findViewById<EditText>(R.id.loginPassword).text.toString()
+                  if(enteredName == correctUsername && enteredPass == correctPassword) {
+                      Toast.makeText(context, "logged in", Toast.LENGTH_SHORT).show()
+                      findNavController().navigate(R.id.action_loginFragment_to_userMenuFragment,
+                          bundleOf("username" to enteredName))
+                  } else Toast.makeText(context, "invalid credentials", Toast.LENGTH_SHORT).show()
+              }
+          }
+      
+          companion object {
+              /**
+               * Use this factory method to create a new instance of
+               * this fragment using the provided parameters.
+               *
+               * @param param1 Parameter 1.
+               * @param param2 Parameter 2.
+               * @return A new instance of fragment LoginFragment.
+               */
+              // TODO: Rename and change types and number of parameters
+              @JvmStatic
+              fun newInstance(param1: String, param2: String) =
+                  LoginFragment().apply {
+                      arguments = Bundle().apply {
+                          putString(ARG_PARAM1, param1)
+                          putString(ARG_PARAM2, param2)
+                      }
+                  }
+          }
+      }
+    learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/TransferFundsFragment.kt
+    visible: true
+    text: |-
+      package org.hyperskill.simplebankmanager
+      
+      import android.os.Bundle
+      import androidx.fragment.app.Fragment
+      import android.view.LayoutInflater
+      import android.view.View
+      import android.view.ViewGroup
+      import android.widget.Button
+      import android.widget.EditText
+      import android.widget.Toast
+      import androidx.navigation.fragment.findNavController
+      import java.lang.Exception
+      import java.math.BigDecimal
+      
+      // TODO: Rename parameter arguments, choose names that match
+      // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+      private const val ARG_PARAM1 = "param1"
+      private const val ARG_PARAM2 = "param2"
+      
+      /**
+       * A simple [Fragment] subclass.
+       * Use the [TransferFundsFragment.newInstance] factory method to
+       * create an instance of this fragment.
+       */
+      class TransferFundsFragment : Fragment() {
+          // TODO: Rename and change types of parameters
+          private var param1: String? = null
+          private var param2: String? = null
+      
+          override fun onCreate(savedInstanceState: Bundle?) {
+              super.onCreate(savedInstanceState)
+              arguments?.let {
+                  param1 = it.getString(ARG_PARAM1)
+                  param2 = it.getString(ARG_PARAM2)
+              }
+          }
+      
+          override fun onCreateView(
+              inflater: LayoutInflater, container: ViewGroup?,
+              savedInstanceState: Bundle?
+          ): View? {
+              // Inflate the layout for this fragment
+              return inflater.inflate(R.layout.fragment_transfer_funds, container, false)
+          }
+      
+          override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+              super.onViewCreated(view, savedInstanceState)
+              view.findViewById<Button>(R.id.transferFundsButton).setOnClickListener {
+                  val accountEditText = view.findViewById<EditText>(R.id.transferFundsAccountEditText)
+                  val accountString = accountEditText.text.toString()
+                  val validAccount = accountString.matches("\\b[cs]a\\d{4}".toRegex())
+                  if (!validAccount) accountEditText.error = "Invalid account number"
+      
+                  val amountEditText = view.findViewById<EditText>(R.id.transferFundsAmountEditText)
+                  val amountString = amountEditText.text.toString()
+                  var amount = BigDecimal.ZERO
+                  try {
+                      amount = BigDecimal(amountString).setScale(2)
+                  } catch (e: Exception) {
+      
+                  }
+                  val validAmount = amount > BigDecimal.ZERO
+                  if (!validAmount) amountEditText.error = "Invalid amount"
+      
+                  if (validAccount && validAmount) {
+                      if (amount > Singleton.getInstance().balance)
+                          Toast.makeText(this.context, "Not enough funds to transfer \$$amount", Toast.LENGTH_SHORT).show()
+                      else {
+                          Toast.makeText(this.context, "Transferred \$$amount to account $accountString", Toast.LENGTH_SHORT).show()
+                          Singleton.getInstance().balance -= amount
+                          findNavController().navigateUp()
+                      }
+                  }
+              }
+          }
+      
+      
+          companion object {
+              /**
+               * Use this factory method to create a new instance of
+               * this fragment using the provided parameters.
+               *
+               * @param param1 Parameter 1.
+               * @param param2 Parameter 2.
+               * @return A new instance of fragment TransferFundsFragment.
+               */
+              // TODO: Rename and change types and number of parameters
+              @JvmStatic
+              fun newInstance(param1: String, param2: String) =
+                  TransferFundsFragment().apply {
+                      arguments = Bundle().apply {
+                          putString(ARG_PARAM1, param1)
+                          putString(ARG_PARAM2, param2)
+                      }
+                  }
+          }
+      }
+    learner_created: true
+  - name: src/main/res/navigation/nav_graph.xml
+    visible: true
+    text: |-
+      <?xml version="1.0" encoding="utf-8"?>
+      <navigation xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:app="http://schemas.android.com/apk/res-auto"
+          xmlns:tools="http://schemas.android.com/tools"
+          android:id="@+id/nav_graph"
+          app:startDestination="@id/loginFragment">
+          <fragment
+              android:id="@+id/loginFragment"
+              android:name="org.hyperskill.simplebankmanager.LoginFragment"
+              android:label="fragment_login"
+              tools:layout="@layout/fragment_login" >
+              <action
+                  android:id="@+id/action_loginFragment_to_userMenuFragment"
+                  app:destination="@id/userMenuFragment" />
+          </fragment>
+          <fragment
+              android:id="@+id/userMenuFragment"
+              android:name="org.hyperskill.simplebankmanager.UserMenuFragment"
+              android:label="fragment_user_menu"
+              tools:layout="@layout/fragment_user_menu" >
+              <action
+                  android:id="@+id/action_userMenuFragment_to_viewBalanceFragment"
+                  app:destination="@id/viewBalanceFragment" />
+              <action
+                  android:id="@+id/action_userMenuFragment_to_transferFundsFragment"
+                  app:destination="@id/transferFundsFragment" />
+              <action
+                  android:id="@+id/action_userMenuFragment_to_calculateExchangeFragment"
+                  app:destination="@id/calculateExchangeFragment" />
+          </fragment>
+          <fragment
+              android:id="@+id/viewBalanceFragment"
+              android:name="org.hyperskill.simplebankmanager.ViewBalanceFragment"
+              android:label="fragment_view_balance"
+              tools:layout="@layout/fragment_view_balance" />
+          <fragment
+              android:id="@+id/transferFundsFragment"
+              android:name="org.hyperskill.simplebankmanager.TransferFundsFragment"
+              android:label="fragment_transfer_funds"
+              tools:layout="@layout/fragment_transfer_funds" />
+          <fragment
+              android:id="@+id/calculateExchangeFragment"
+              android:name="org.hyperskill.simplebankmanager.CalculateExchangeFragment"
+              android:label="fragment_calculate_exchange"
+              tools:layout="@layout/fragment_calculate_exchange" />
+      </navigation>
+    learner_created: true
+  - name: src/main/res/layout/fragment_transfer_funds.xml
+    visible: true
+    text: |-
+      <?xml version="1.0" encoding="utf-8"?>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:app="http://schemas.android.com/apk/res-auto"
+          xmlns:tools="http://schemas.android.com/tools"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          tools:context=".TransferFundsFragment">
+      
+          <androidx.constraintlayout.widget.ConstraintLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+      
+              <EditText
+                  android:id="@+id/transferFundsAccountEditText"
+                  android:layout_width="210dp"
+                  android:layout_height="60dp"
+                  android:layout_marginTop="320dp"
+                  android:ems="10"
+                  android:hint="Account Number"
+                  android:inputType="text"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintHorizontal_bias="0.500"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toTopOf="parent" />
+      
+              <EditText
+                  android:id="@+id/transferFundsAmountEditText"
+                  android:layout_width="210dp"
+                  android:layout_height="60dp"
+                  android:layout_marginTop="12dp"
+                  android:ems="10"
+                  android:hint="Enter amount"
+                  android:inputType="numberDecimal"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintHorizontal_bias="0.500"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/transferFundsAccountEditText" />
+      
+              <Button
+                  android:id="@+id/transferFundsButton"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="20dp"
+                  android:text="Transfer"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintHorizontal_bias="0.500"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/transferFundsAmountEditText" />
+      
+          </androidx.constraintlayout.widget.ConstraintLayout>
+      </FrameLayout>
+    learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/Singleton.kt
+    visible: true
+    text: |-
+      package org.hyperskill.simplebankmanager
+      
+      import java.math.BigDecimal
+      
+      class Singleton private constructor() {
+          lateinit var balance: BigDecimal
+          lateinit var exchangeMap: Map<String, Map<String, Double>>
+          companion object {
+      
+              @Volatile
+              private var instance: Singleton? = null
+      
+              fun getInstance() = instance ?: synchronized(this) {
+                  instance ?: Singleton().also { instance = it }
+              }
+          }
+      }
+    learner_created: true
+  - name: src/main/res/layout/fragment_user_menu.xml
+    visible: true
+    text: |-
+      <?xml version="1.0" encoding="utf-8"?>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:app="http://schemas.android.com/apk/res-auto"
+          xmlns:tools="http://schemas.android.com/tools"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          tools:context=".UserMenuFragment">
+      
+          <androidx.constraintlayout.widget.ConstraintLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+      
+              <TextView
+                  android:id="@+id/userMenuWelcomeTextView"
+                  android:layout_width="274dp"
+                  android:layout_height="47dp"
+                  android:layout_marginTop="228dp"
+                  android:text="Welcome"
+                  android:textAlignment="center"
+                  android:textSize="34sp"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toTopOf="parent" />
+      
+              <Button
+                  android:id="@+id/userMenuViewBalanceButton"
+                  android:layout_width="274dp"
+                  android:layout_height="50dp"
+                  android:layout_marginTop="36dp"
+                  android:text="view balance"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/userMenuWelcomeTextView" />
+      
+              <Button
+                  android:id="@+id/userMenuTransferFundsButton"
+                  android:layout_width="274dp"
+                  android:layout_height="50dp"
+                  android:layout_marginTop="36dp"
+                  android:text="transfer funds"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/userMenuViewBalanceButton" />
+      
+              <Button
+                  android:id="@+id/userMenuExchangeCalculatorButton"
+                  android:layout_width="274dp"
+                  android:layout_height="50dp"
+                  android:layout_marginTop="36dp"
+                  android:text="calculate exchange"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/userMenuTransferFundsButton" />
+      
+              <Button
+                  android:id="@+id/userMenuPayBillsButton"
+                  android:layout_width="274dp"
+                  android:layout_height="50dp"
+                  android:layout_marginTop="36dp"
+                  android:text="pay bills"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/userMenuExchangeCalculatorButton" />
+      
+          </androidx.constraintlayout.widget.ConstraintLayout>
+      </FrameLayout>
+    learner_created: true
+  - name: src/main/res/layout/fragment_view_balance.xml
+    visible: true
+    text: |-
+      <?xml version="1.0" encoding="utf-8"?>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:app="http://schemas.android.com/apk/res-auto"
+          xmlns:tools="http://schemas.android.com/tools"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          tools:context=".ViewBalanceFragment">
+      
+          <androidx.constraintlayout.widget.ConstraintLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+      
+              <TextView
+                  android:id="@+id/viewBalanceLabelTextView"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="328dp"
+                  android:text="Balance:"
+                  android:textSize="24sp"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toTopOf="parent" />
+      
+              <TextView
+                  android:id="@+id/viewBalanceAmountTextView"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="4dp"
+                  android:textSize="24sp"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/viewBalanceLabelTextView" />
+      
+          </androidx.constraintlayout.widget.ConstraintLayout>
+      
+      </FrameLayout>
+    learner_created: true
+  - name: src/main/res/layout/fragment_login.xml
+    visible: true
+    text: |-
+      <?xml version="1.0" encoding="utf-8"?>
+      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:app="http://schemas.android.com/apk/res-auto"
+          xmlns:tools="http://schemas.android.com/tools"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          tools:context=".LoginFragment">
+      
+          <androidx.constraintlayout.widget.ConstraintLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+      
+              <EditText
+                  android:id="@+id/loginUsername"
+                  android:layout_width="210dp"
+                  android:layout_height="51dp"
+                  android:layout_marginTop="308dp"
+                  android:ems="10"
+                  android:hint="username"
+                  android:inputType="textPersonName"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintHorizontal_bias="0.512"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toTopOf="parent" />
+      
+              <EditText
+                  android:id="@+id/loginPassword"
+                  android:layout_width="210dp"
+                  android:layout_height="52dp"
+                  android:layout_marginTop="12dp"
+                  android:ems="10"
+                  android:hint="password"
+                  android:inputType="numberPassword"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintHorizontal_bias="0.512"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/loginUsername" />
+      
+              <Button
+                  android:id="@+id/loginButton"
+                  android:layout_width="210dp"
+                  android:layout_height="52dp"
+                  android:layout_marginTop="12dp"
+                  android:text="log in"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/loginPassword" />
+          </androidx.constraintlayout.widget.ConstraintLayout>
+      </FrameLayout>
+    learner_created: true
+  - name: src/main/java/org/hyperskill/simplebankmanager/ViewBalanceFragment.kt
+    visible: true
+    text: |-
+      package org.hyperskill.simplebankmanager
+      
+      import android.os.Bundle
+      import androidx.fragment.app.Fragment
+      import android.view.LayoutInflater
+      import android.view.View
+      import android.view.ViewGroup
+      import android.widget.TextView
+      import java.util.Locale
+      
+      // TODO: Rename parameter arguments, choose names that match
+      // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+      private const val ARG_PARAM1 = "param1"
+      private const val ARG_PARAM2 = "param2"
+      
+      /**
+       * A simple [Fragment] subclass.
+       * Use the [ViewBalanceFragment.newInstance] factory method to
+       * create an instance of this fragment.
+       */
+      class ViewBalanceFragment : Fragment() {
+          // TODO: Rename and change types of parameters
+          private var param1: String? = null
+          private var param2: String? = null
+      
+          override fun onCreate(savedInstanceState: Bundle?) {
+              super.onCreate(savedInstanceState)
+              arguments?.let {
+                  param1 = it.getString(ARG_PARAM1)
+                  param2 = it.getString(ARG_PARAM2)
+              }
+          }
+      
+          override fun onCreateView(
+              inflater: LayoutInflater, container: ViewGroup?,
+              savedInstanceState: Bundle?
+          ): View? {
+              // Inflate the layout for this fragment
+              return inflater.inflate(R.layout.fragment_view_balance, container, false)
+          }
+      
+          override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+              super.onViewCreated(view, savedInstanceState)
+              view.findViewById<TextView>(R.id.viewBalanceAmountTextView).text = String.format(Locale.US, "$%.2f", Singleton.getInstance().balance)
+          }
+          companion object {
+              /**
+               * Use this factory method to create a new instance of
+               * this fragment using the provided parameters.
+               *
+               * @param param1 Parameter 1.
+               * @param param2 Parameter 2.
+               * @return A new instance of fragment ViewBalanceFragment.
+               */
+              // TODO: Rename and change types and number of parameters
+              @JvmStatic
+              fun newInstance(param1: String, param2: String) =
+                  ViewBalanceFragment().apply {
+                      arguments = Bundle().apply {
+                          putString(ARG_PARAM1, param1)
+                          putString(ARG_PARAM2, param2)
+                      }
+                  }
+          }
+      }
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/27109#comment
 status: Unchecked
 record: -1
