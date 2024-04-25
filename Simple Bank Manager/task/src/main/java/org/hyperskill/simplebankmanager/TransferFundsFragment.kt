@@ -5,6 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import java.lang.Exception
+import java.math.BigDecimal
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,6 +42,38 @@ class TransferFundsFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_transfer_funds, container, false)
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.findViewById<Button>(R.id.transferFundsButton).setOnClickListener {
+            val accountEditText = view.findViewById<EditText>(R.id.transferFundsAccountEditText)
+            val accountString = accountEditText.text.toString()
+            val validAccount = accountString.matches("\\b[cs]a\\d{4}".toRegex())
+            if (!validAccount) accountEditText.error = "Invalid account number"
+
+            val amountEditText = view.findViewById<EditText>(R.id.transferFundsAmountEditText)
+            val amountString = amountEditText.text.toString()
+            var amount = BigDecimal.ZERO
+            try {
+                amount = BigDecimal(amountString).setScale(2)
+            } catch (e: Exception) {
+
+            }
+            val validAmount = amount > BigDecimal.ZERO
+            if (!validAmount) amountEditText.error = "Invalid amount"
+
+            if (validAccount && validAmount) {
+                if (amount > Singleton.getInstance().balance)
+                    Toast.makeText(this.context, "Not enough funds to transfer \$$amount", Toast.LENGTH_SHORT).show()
+                else {
+                    Toast.makeText(this.context, "Transferred \$$amount to account $accountString", Toast.LENGTH_SHORT).show()
+                    Singleton.getInstance().balance -= amount
+                    findNavController().navigateUp()
+                }
+            }
+        }
+    }
+
 
     companion object {
         /**

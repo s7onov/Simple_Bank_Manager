@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import java.util.Locale
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -40,7 +41,7 @@ class ViewBalanceFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<TextView>(R.id.viewBalanceAmountTextView).text = "$" + Singleton.getInstance().balance
+        view.findViewById<TextView>(R.id.viewBalanceAmountTextView).text = String.format(Locale.US, "$%.2f", Singleton.getInstance().balance)
     }
     companion object {
         /**
